@@ -1,0 +1,17 @@
+[
+    {
+        "comment_comment" : "Like Totally",
+        "user_id": 1,
+        "blogpost_id" : 1
+    },
+    {
+        "comment_comment" : "Yeah, nah",
+        "user_id": 2,
+        "blogpost_id" : 1
+    },
+    {
+        "comment_comment" : "OMG Yeah",
+        "user_id": 1,
+        "blogpost_id" : 3
+    }
+]

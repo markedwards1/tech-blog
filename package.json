@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-    
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,11 @@
     "sequelize": "^6.21.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"                  
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
   },
   "bugs": {
     "url": "https://github.com/markedwards1/tech-blog/issues"
   },
   "homepage": "https://github.com/markedwards1/tech-blog#readme"
-  
 }

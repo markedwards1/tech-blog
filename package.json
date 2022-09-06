@@ -1,0 +1,36 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markedwards1/tech-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^7.4.0",
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"                  
+  },
+  "bugs": {
+    "url": "https://github.com/markedwards1/tech-blog/issues"
+  },
+  "homepage": "https://github.com/markedwards1/tech-blog#readme"
+  
+}

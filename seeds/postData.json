@@ -1,0 +1,17 @@
+[
+    {
+        "title" : "My Tech is Boss",
+        "content": "Like totally",
+        "user_id" : 1
+    },
+    {
+        "title" : "I blog tech",
+        "content": "What to hear about my tech?",
+        "user_id" : 2
+    },
+    {
+        "title" : "Tech Free holiday",
+        "content": "No tech allowed in this silent retreat",
+        "user_id" : 3
+    }
+]

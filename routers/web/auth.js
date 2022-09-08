@@ -6,12 +6,12 @@ const router = require('express').Router();
 // contain authentication routes
 
 
-// login page
-  router.get('/', (req, res) => {
-      res.render("home")
+// // login page
+//   router.get('/', (req, res) => {
+//       res.render("home")
 
       
-    });
+//     });
   
   
 // //log user in

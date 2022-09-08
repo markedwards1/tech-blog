@@ -2,24 +2,28 @@
 
 <section>
     {{!-- we are going to loop through all the data and show the title and content --}}
-    {{!-- {{#each blogPosts as |BlogPost|}} --}}
+    {{#each posts as |post|}}
+    {{!-- {{#each users as |user}} --}}
     <article>
         {{!-- this is how you call the data --}}
-       <form action="post"></form>
+     
        
-        <h2>{{BlogPost.title}}</h2>
+        <h2>{{post.title}}</h2>
 
 
-        <p>{{BlogPost.content}}</p>
+        <p>{{post.content}}</p>
         <p>date created</p>
-        <p>{{BlogPost.createdAt}}</p>
-        <p>username</p>
-        <p>{{User.username}}</p>
+        <p>{{post.createdAt}}</p>
+        <p>username id</p>
+        <p>{{post.user_id}}</p>
+        <P>username</P>
+        <p>{{users.username}}</p>
 
 
 
     </article>
-    {{!-- {{/each}} --}}
+    {{/each}}
+       {{!-- {{/each}} --}}
 
 
 

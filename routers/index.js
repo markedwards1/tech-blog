@@ -1,11 +1,12 @@
 const router = require('express').Router();
 
 //this is where we load in the route
-// const apiRoutes = require('./api');
-const auth = require('./web/auth.js');
+const auth = require('./web/auth')
+const post = require('./web/post.js')
 
 //middleware
-router.use(auth);
+// router.use(auth);
+router.use(post)
 
 
 module.exports = router;

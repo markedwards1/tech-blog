@@ -1,5 +1,9 @@
-{{!-- <form action="/create-blog" method="post">
+<h1>Edit Post</h1>
+
+{{post.id}}
+
+<form action="/edit-post/:id" method="put">
     <input type="text" name="title" placeholder="title">
     <input type="text" name="content" placeholder="content">
     <button type="submit">Create</button>
-</form> --}}
+</form>

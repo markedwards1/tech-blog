@@ -11,7 +11,7 @@ Post.init(
     user_id: {
       type: DataTypes.INTEGER,
       references:{
-        model: "Users", 
+        model: "user", 
         key: "id"
         
       }
@@ -26,6 +26,7 @@ Post.init(
   }, 
   {
     sequelize,
+    freezeTableName: true,
     timestamps: true,
     underscored: false,
     modelName: "post"

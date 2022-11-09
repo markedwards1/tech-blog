@@ -4,22 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tech Blog</title>
+    {{!-- <link rel="stylesheet" href="../../public/css/style.css"> --}}
 </head>
 <body>
     <nav>
         <p>homepage</p>
-        <a action="GET" href="/">Home</a>
+        <a action="GET" href="/">Home Page</a>
         <a action="GET" href="/dashboard">Dashboard</a>
         <a action="GET" href="/login">Login</a>
-        <a action="POST" href="/logout">Logout</a>
+        <a action="POST" method="post" href="/logout">Logout<a/>
 
                 
     </nav>
-
+      <nav>
+        <!-- Conditionally render login or logout links -->
+          <a action="GET" href="/">Home Page</a>
+           
+        {{!-- {{#if logged_in}} --}}
+        <a href="/dashboard">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{!-- {{else}} --}}
+        <a href="/login">login</a>
+        {{!-- {{/if}} --}}
+      </nav>
 
 {{{ body }}}
-
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/public/js/logout.js"></script>
+  {{/if}}
 
 
 {{#if error}}

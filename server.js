@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const methodOverride = require('method-override')
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routers/index');
@@ -10,7 +11,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+// console.log("PID: ", process.pid)
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
@@ -33,6 +34,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use(routes);
 

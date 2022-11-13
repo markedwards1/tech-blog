@@ -1,26 +1,38 @@
 <h1>Edit Post</h1>
 
-
-
 {{!-- {{post.id}}
 
         <h2>{{post.title}}</h2>
     
     
         <p>{{post.content}}</p> --}}
-        <p>date created: {{post.createdAt}}</p>
-      
-        <p>Username id: {{post.user.id}}</p>
-        <P>Username: {{post.user.username}}</P>
-        
+<p>date created: {{post.createdAt}}</p>
+
+<p>Username id: {{post.user.id}}</p>
+<P>Username: {{post.user.username}}</P>
 
 <form action="/update-post/{{post.id}}?_method=PUT" method="POST">
-    <input type="text" id="title" name="title" value="{{post.title}}">
-    <p>
-   <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
-   </p>
-    <button id="" type="submit">Update</button>
+  <input type="text" id="title" name="title" value="{{post.title}}" />
+  <p>
+    <textarea
+      name="content"
+      id="content"
+      cols="30"
+      rows="10"
+    >{{post.content}}</textarea>
+  </p>
+  <button id="" type="submit">Update</button>
 </form>
 
+<form action="/delete/{{post.id}}?_method=DELETE" method="POST">
+<button  method="DELETE" type="submit">DELETE</button>
 
-                                            
+</form>
+
+{{!-- <a action="/" method="DELETE" href="/delete/{{post.id}}">Delete</a> --}}
+
+
+{{!-- <a href="/" id="delete-button" data-id="{{post.user.id}}">DELETE</a> --}}
+
+{{!-- <script src="./js/deletePost.js"></script> --}}
+{{!-- <script src="./js/login.js"></script> --}}

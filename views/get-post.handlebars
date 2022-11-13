@@ -1,0 +1,20 @@
+<p>date created: {{post.createdAt}}</p>
+
+<p>Username id: {{post.user.id}}</p>
+<P>Username: {{post.user.username}}</P>
+<p>Title: {{post.title}}</p>
+<p> {{post.content}} </p>
+
+{{!-- <form action="/update-post/{{post.id}}?_method=PUT" method="POST">
+  <input type="text" id="title" name="title" value="{{post.title}}" />
+  <p>
+    <textarea
+      name="content"
+      id="content"
+      cols="30"
+      rows="10"
+    >{{post.content}}</textarea>
+  </p>
+  <button id="" type="submit">Update</button>
+</form> --}}
+   <a action="GET" href="/edit-post/{{post.user.id}}">Edit Post</a>

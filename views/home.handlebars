@@ -19,9 +19,13 @@
         <P>username</P>
         <p>{{post.user.username}}</p>
 
-<button ></button>
+
 
      <a action="GET" href="/edit-post/{{post.user.id}}">Edit Post</a>
+    <a action="GET" href="/get-post/{{post.user.id}}" >view post</a>
+
+
+
 
     </article>
     {{/each}}

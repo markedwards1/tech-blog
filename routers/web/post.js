@@ -1,5 +1,5 @@
-const { Post }= require("../../models/");
-const { User } = require("../../models/");
+const { Post }= require("../../models");
+const { User } = require("../../models");
 const { update } = require("../../models/User");
 const withAuth = require('../../utils/auth')
 
@@ -56,6 +56,32 @@ router.post('/dashboard', withAuth,  async (req, res) => {
 
 
 //GET ONE POST
+router.get('/get-post/:id', withAuth, async (req, res) => {
+  const post = await Post.findOne({
+    where: {
+      id: req.params.id
+    }, 
+    attributes: [
+      'id',
+      'title',
+      'content',
+      'createdAt' 
+     
+    ],
+    include: [{
+      model: User,
+      attributes: [
+        "id", 
+        "username"
+      ]
+    }]
+    
+  })
+  const results = post.get({ plain: true })
+  res.render("get-post",{ post: results })
+
+});
+
 
 router.get('/edit-post/:id', withAuth, async (req, res) => {
   const post = await Post.findOne({
@@ -83,24 +109,7 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
 
 });
 
-// Update post
 
-
-// router.put('/update-post/:id',  (req, res) => {
-//   try {
-//     const updatePost =  Post.update({
-//       title: req.params.title,
-//       content: req.params.content
-//     }
-      
-
-//     );
-//     res.status(200).json(updatePost);
-//     console.log(updatePost)
-//   } catch (err){
-//     res.status(400).json("wrong post id")
-//   }
-// })
 
 router.put('/update-post/:id', withAuth, (req, res) => {
   //Calls the update method on the Book model
@@ -127,6 +136,27 @@ router.put('/update-post/:id', withAuth, (req, res) => {
       res.json(err);
     });
 });
+
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const postData = await Post.destroy({
+      where: {
+        id: req.params.id,
+        // user_id: req.session.user_id,
+      },
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
 

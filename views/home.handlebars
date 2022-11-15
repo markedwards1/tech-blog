@@ -18,13 +18,18 @@
         <p>{{post.user_id}}</p>
         <P>username</P>
         <p>{{post.user.username}}</p>
+        <p>comment: {{post.comments.body}}</p>
 
 
 
-     <a action="GET" href="/edit-post/{{post.user.id}}">Edit Post</a>
-    <a action="GET" href="/get-post/{{post.user.id}}" >view post</a>
+     <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
+    <a action="GET" href="/get-post/{{post.id}}" >view post</a>
 
+{{!-- <form action="/add-comment/{{post.id}}" method="post">
+<input type="text" id="body" name="body">
+<button method="POST" type="submit" >Add Comment</button> --}}
 
+</form>
 
 
     </article>

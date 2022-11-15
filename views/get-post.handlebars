@@ -3,7 +3,9 @@
 <p>Username id: {{post.user.id}}</p>
 <P>Username: {{post.user.username}}</P>
 <p>Title: {{post.title}}</p>
-<p> {{post.content}} </p>
+<p>Content: {{post.content}} </p>
+<p>Comments</p>
+<p>Body: {{post.comment.body}}</p>
 
 {{!-- <form action="/update-post/{{post.id}}?_method=PUT" method="POST">
   <input type="text" id="title" name="title" value="{{post.title}}" />
@@ -17,4 +19,6 @@
   </p>
   <button id="" type="submit">Update</button>
 </form> --}}
-   <a action="GET" href="/edit-post/{{post.user.id}}">Edit Post</a>
+   <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
+
+      <a action="GET" href="/add-comment/{{post.id}}">Add Comment</a>

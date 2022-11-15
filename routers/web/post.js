@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
 
 
     const posts = await Post.findAll({
-      include: [
-        {
+      include: [{
           model: User,
           attributes: [
             "id", "username"
           ],
+  
    
         }
 
@@ -70,6 +70,8 @@ router.get('/get-post/:id', withAuth, async (req, res) => {
       'createdAt' 
      
     ],
+
+
     include: [{
       model: User,
       attributes: [
@@ -77,18 +79,18 @@ router.get('/get-post/:id', withAuth, async (req, res) => {
         "username"
       ]
     }],
-    include: [{
+    include: {
       model: Comment,
       attributes: [
         "body",
         "user_id"
       ]
-    }]
+    }
     
   })
   const results = post.get({ plain: true });
   res.render("get-post",{ post: results });
-  console.log(post);
+  console.log(results.comments   );
 
 });
 

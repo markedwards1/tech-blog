@@ -5,7 +5,7 @@
 <p>Title: {{post.title}}</p>
 <p>Content: {{post.content}} </p>
 <p>Comments</p>
-<p>Body: {{post.comment.body}}</p>
+<p>Body: {{post.comments}}</p>
 
 <form action="/add-comment/{{post.id}}" method="post">
 <input type="text" id="body" name="body">

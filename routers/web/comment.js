@@ -3,6 +3,7 @@ const withAuth = require("../../utils/auth");
 
 const router = require('express').Router();
 
+
 router.get('/add-comment/:id', withAuth, async (req, res) => {
     const post = await Post.findOne({
         where: {
@@ -20,7 +21,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
           attributes: [
             "id", 
             "username"
-          ]
+          ],
         }],
         include: [{
           model: Comment,
@@ -30,10 +31,11 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
           ]
         }]
         
-      })
+      });
       const results = post.get({ plain: true });
       res.render("add-comment",{ post: results });
-      console.log(post);
+      console.log(results.comments);
+      
     
 })
 

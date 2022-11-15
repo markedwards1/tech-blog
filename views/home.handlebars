@@ -1,4 +1,4 @@
-<h1>you are home baby</h1>
+
 
 <section>
     {{!-- we are going to loop through all the data and show the title and content --}}
@@ -7,29 +7,24 @@
     <article>
         {{!-- this is how you call the data --}}
      
-       
-        <h2>{{post.title}}</h2>
-
-
+    <div class="card">
+        <h4>{{post.title}}</h4>
+        <hr>
         <p>{{post.content}}</p>
-        <p>date created</p>
         <p>{{post.createdAt}}</p>
-        <p>username id</p>
-        <p>{{post.user_id}}</p>
-        <P>username</P>
-        <p>{{post.user.username}}</p>
+        <p>By: {{post.user.username}}</p>
+        <p>
+            <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
+        </p>
+        <p>
+            <a action="GET" href="/get-post/{{post.id}}" >View post</a>
+        </p>
+        <p>
+            <a action="GET" href="/add-comment/{{post.id}}">Add Comment</a>
+        </p>
+    </div>
+    <br>
        
-
-
-
-     <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
-    <a action="GET" href="/get-post/{{post.id}}" >view post</a>
-
-{{!-- <form action="/add-comment/{{post.id}}" method="post">
-<input type="text" id="body" name="body">
-<button method="POST" type="submit" >Add Comment</button> --}}
-
-</form>
 
 
     </article>

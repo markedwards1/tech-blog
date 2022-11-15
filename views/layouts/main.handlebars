@@ -13,7 +13,7 @@
         <a action="GET" href="/">Home Page</a>
         <a action="GET" href="/dashboard">Dashboard</a>
         <a action="GET" href="/login">Login</a>
-        <a action="POST" method="post" href="/logout">Logout<a/>
+        {{!-- <a action="POST" method="post" href="/logout">Logout<a/> --}}
 
         <form action="/logout" method="post">
         
@@ -23,8 +23,11 @@
 
                 
     </nav>
+<section>
 
 {{{body}}}
+
+</section>
 
 {{#if error}}
 <div class="error-popup">

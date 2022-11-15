@@ -34,7 +34,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
       });
       const results = post.get({ plain: true });
       res.render("add-comment",{ post: results });
-      console.log(results.comments);
+    //   console.log(results.comments);
       
     
 })

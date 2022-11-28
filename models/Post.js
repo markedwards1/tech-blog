@@ -15,8 +15,8 @@ Post.init(
         key: "id"
         
       }
-    }
-    // username_id: {
+    },
+    // username: {
     //   type: DataTypes.STRING,
     //   references: {
     //     model: "Users",

@@ -6,11 +6,11 @@
     
     
         <p>{{post.content}}</p> --}}
-<p>date created: {{post.createdAt}}</p>
+{{!-- <p>date created: {{post.createdAt}}</p>
 
 <p>Username id: {{post.user.id}}</p>
 <P>Username: {{post.user.username}}</P>
-<p>post id: {{post.id}} </p>
+<p>post id: {{post.id}} </p> --}}
 <form action="/update-post/{{post.id}}?_method=PUT" method="POST">
   <input type="text" id="title" name="title" value="{{post.title}}" />
   <p>
@@ -21,12 +21,12 @@
       rows="10"
     >{{post.content}}</textarea>
   </p>
-  <input type="text" id="body" name="body" value="{{post.comment.body}}">
+  {{!-- <input type="text" id="body" name="body" value="{{post.comment.body}}"> --}}
   <button id="" type="submit">Update</button>
 </form>
 
 <form action="/delete/{{post.id}}?_method=DELETE" method="POST">
-<button  method="DELETE" type="submit">DELETE</button>
+<button  method="DELETE" type="submit">Delete</button>
 
 </form>
 

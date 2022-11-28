@@ -1,24 +1,26 @@
-<p>date created: {{post.createdAt}}</p>
+<div class="card">
+ <h4>{{post.title}}</h4>
+ <hr>
+ <p>{{post.content}}</p>
+ <hr>
+ <h1>Comments</h1>
 
-<p>Username id: {{post.user.id}}</p>
-<P>Username: {{post.user.username}}</P>
-<p>Title: {{post.title}}</p>
-<p>Content: {{post.content}} </p>
-<p>Comments</p>
-<p>Body: {{post.comments}}</p>
 
-{{!-- <form action="/update-post/{{post.id}}?_method=PUT" method="POST">
-  <input type="text" id="title" name="title" value="{{post.title}}" />
-  <p>
-    <textarea
-      name="content"
-      id="content"
-      cols="30"
-      rows="10"
-    >{{post.content}}</textarea>
-  </p>
-  <button id="" type="submit">Update</button>
-</form> --}}
+ {{#each post.comments as |comment|}}
+
+
+<p>Comments: {{comment.body}}</p>
+
+
+ {{/each}}
+
+<p>
+
    <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
+</p>
+
+<p>
 
       <a action="GET" href="/add-comment/{{post.id}}">Add Comment</a>
+</p>
+</div>

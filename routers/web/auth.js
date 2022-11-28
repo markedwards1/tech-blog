@@ -22,22 +22,27 @@ const router = require('express').Router();
   // this is a async function
 
 
+  router.get('/signup', async (req, res) => {
+    res.render('home')
+  })
 
   router.post('/signup', async (req, res) => {
+ 
+   
     try {
       const userData = await User.create(req.body);
   
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
-        res.status(200).json(userData)
-        res.render('sucess')    
+        // res.status(200).json(userData)
+        res.render('home')    
       });
     } catch (err) {
       res.status(400).json(err);
     } 
+    
   });
-
 
 
 

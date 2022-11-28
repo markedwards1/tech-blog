@@ -1,6 +1,38 @@
-<h1>welcome to your dashboard</h1>
+
+
+<h1>Welcome to your dashboard</h1>
+<h2>Create Post</h2>
 <form action="/dashboard" method="post">
     <input type="text" name="title" placeholder="title">
     <input type="text" name="content" placeholder="content">
     <button type="submit">Create</button>
 </form>
+
+<section>  
+    {{#each posts as |post|}}   
+    <article>      
+     
+    <div class="card">
+        <h4>{{post.title}}</h4>
+        <hr>
+        <p>{{post.content}}</p>
+        <p>{{post.createdAt}}</p>
+        <p>By: {{post.user.username}}</p>
+        <p>
+            <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
+        </p>
+        <p>
+            <a action="GET" href="/get-post/{{post.id}}" >View post</a>
+        </p>
+        <p>
+            <a action="GET" href="/add-comment/{{post.id}}">Add Comment</a>
+        </p>
+    </div>
+    <br>   
+
+
+    </article>
+    {{/each}}
+  
+
+</section>

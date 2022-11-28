@@ -1,11 +1,8 @@
 
 
-<section>
-    {{!-- we are going to loop through all the data and show the title and content --}}
-    {{#each posts as |post|}}
-    {{!-- {{#each users as |user}} --}}
-    <article>
-        {{!-- this is how you call the data --}}
+<section>  
+    {{#each posts as |post|}}   
+    <article>      
      
     <div class="card">
         <h4>{{post.title}}</h4>
@@ -13,9 +10,15 @@
         <p>{{post.content}}</p>
         <p>{{post.createdAt}}</p>
         <p>By: {{post.user.username}}</p>
-        <p>
+        {{!-- <p>
             <a action="GET" href="/edit-post/{{post.id}}">Edit Post</a>
-        </p>
+        </p> --}}
+
+
+
+        
+
+
         <p>
             <a action="GET" href="/get-post/{{post.id}}" >View post</a>
         </p>
@@ -23,20 +26,11 @@
             <a action="GET" href="/add-comment/{{post.id}}">Add Comment</a>
         </p>
     </div>
-    <br>
-       
+    <br>   
 
 
     </article>
     {{/each}}
-       {{!-- {{/each}} --}}
-
-
-
-
-
-
-
-
+  
 
 </section>

@@ -14,6 +14,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
           'title',
           'content',
           'createdAt' 
+          
          
         ],
         include: [{
@@ -34,7 +35,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
       });
       const results = post.get({ plain: true });
       res.render("add-comment",{ post: results });
-    //   console.log(results.comments);
+      console.log(results);
       
     
 })
@@ -42,7 +43,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
 
 router.post('/add-comment/:id', async (req, res) => {
     try {
-        res.render('add-comment');
+        res.render('dashboard');
         const commentData = await Comment.create({
 
             post_id: req.params.id,
@@ -54,6 +55,7 @@ router.post('/add-comment/:id', async (req, res) => {
 
     } catch (err) {
         res.status(400).json(err)
+    
     }
 })
 

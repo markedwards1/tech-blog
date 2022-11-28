@@ -5,29 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+       {{!-- {{#each css}}
+        {{!-- <link rel="stylesheet" href="/css/{{this}}"> --}}
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="https://classless.de/classless.css">
+    {{!-- {{/each}} --}}
 </head>
-<body>
-    <nav>
-        <p>homepage</p>
-        <a action="GET" href="/">Home Page</a>
-        <a action="GET" href="/dashboard">Dashboard</a>
-        <a action="GET" href="/login">Login</a>
-        {{!-- <a action="POST" method="post" href="/logout">Logout<a/> --}}
 
+<body>
+    <div>
+<nav>
+  <ul>
+    <li>Tech Blog</li>
+    <li>
+        
+        <a action="GET" href="/">Home Page</a>
+        
+    </li>
+    <li>
+
+        <a action="GET" href="/dashboard">Dashboard</a>
+
+    </li>
+    {{!-- <li>
+
+        <a action="GET" href="/user-posts/{{post.user.id}}">Dashboard2</a>
+
+    </li> --}}
+    <li>
+
+        <a action="GET" href="/login">Login</a>
+
+    </li>
+
+    <li >
+        
+        
         <form action="/logout" method="post">
         
         <button type="submit">logout</button>
         
         </form>
+        
+       </li>
 
-                
-    </nav>
-<section>
+
+    {{!-- <li><a href="#">Menu ▾</a>
+      <ul>
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+      </ul>
+    </li> --}}
+   
+  </ul>
+</nav>
+
+
+    </div>
+<div>
 
 {{{body}}}
+</div>
 
-</section>
+
+
+
+</body>
+
 
 {{#if error}}
 <div class="error-popup">

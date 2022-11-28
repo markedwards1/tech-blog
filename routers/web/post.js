@@ -32,7 +32,71 @@ router.get('/', async (req, res) => {
 })
 
 
+
+router.get('/user-posts/:id', withAuth, async (req, res) => {
+  const post = await Post.findAll({
+    where: {
+      id: req.params.id
+    }, 
+    attributes: [
+      'id',
+      'title',
+      'content',
+      'createdAt' 
+     
+    ],
+
+
+    include: [{
+      model: User,
+      attributes: [
+        "id", 
+        "username"
+      ]
+    }],
+    include: {
+      model: Comment,
+      attributes: [
+        "body",
+        "user_id"
+      ]
+    }
+    
+  })
+  const results = post.map((post) => post.get({ plain: true }))
+  console.log(results);
+  res.render("dashboard", {post: results });
+
+});
+
+
+
 //CREATE POST
+
+router.get('/dashboard', async (req, res) => {
+
+
+  const posts = await Post.findAll({
+    include: [{
+        model: User,
+        attributes: [
+          "id", "username"
+        ],
+
+ 
+      }
+
+    ]
+  });
+  const results = posts.map((posts) => posts.get({ plain: true }))
+  console.log(results);
+  res.render("dashboard", {
+    posts: results,
+    // users: userResults,
+    
+  });
+  
+})
 
 router.post('/dashboard', withAuth,  async (req, res) => {
   try {
@@ -174,7 +238,7 @@ router.delete('/delete/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).res.redirect('/');
+    res.status(200).res.render('dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
